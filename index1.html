@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Find a book or magazine by its ISBN.</h1>
+      <form>
+        <input type="text" id="ISBN">
+        <button type="button" id="btn">Submit</button>
+
+      </form>  
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+<script>
+  document.getElementById('btn').addEventListener('click', getdetails)
+  function getdetails(event){
+    event.preventDefault();
+    const isbn=document.getElementById('ISBN').value
+
+    isbn:isbn
+    console.log(isbn)
+
+  axios.post('http://localhost:3000/isbn',isbn).then((res)=>{console.log('hi')})
+ }
+  
+
+
+
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Node js upload csv file to MySQL database</h1>
+      <form action="/uploadfile" enctype="multipart/form-data" method="post">
+        <input type="file" name="uploadfile" accept='csv' >
+        <input type="submit" value="Upload CSV">
+        <br> <br>
+        <input type="text" id="email">
+        <button type="button" id="btn">Submit</button>
+
+      </form>  
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+<script>
+  document.getElementById('btn').addEventListener('click', getdetails)
+  function getdetails(event){
+    event.preventDefault();
+    const email=document.getElementById('email').value
+    const obj={
+      email:email
+    }
+    console.log(obj)
+
+  axios.post('http://localhost:3000/getdetails',obj).then((res)=>{console.log('hi')})
+ }
+  
+
+
+
+</script>
+</html>
